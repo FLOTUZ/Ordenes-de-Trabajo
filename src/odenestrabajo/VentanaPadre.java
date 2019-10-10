@@ -1,6 +1,7 @@
 package odenestrabajo;
 
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -34,7 +35,7 @@ public class VentanaPadre extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menNuevaOrden = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -44,8 +45,14 @@ public class VentanaPadre extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setText("Abrir");
-        jMenu1.add(jMenuItem1);
+        menNuevaOrden.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menNuevaOrden.setText("Nueva Orden");
+        menNuevaOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menNuevaOrdenActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menNuevaOrden);
 
         jMenuItem2.setText("Cerrar");
         jMenu1.add(jMenuItem2);
@@ -77,6 +84,19 @@ public class VentanaPadre extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menNuevaOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menNuevaOrdenActionPerformed
+        //Se agrega nueva ventana hija
+        JInternalFrame vHija =
+                new JInternalFrame("orden de trabajo", true, true, true, true);
+        
+        PanelHijo hijo = new PanelHijo();
+        
+        vHija.add(hijo);
+        vHija.pack();
+        vHija.setVisible(true);
+        escritorio.add(vHija);
+    }//GEN-LAST:event_menNuevaOrdenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,8 +138,8 @@ public class VentanaPadre extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem menNuevaOrden;
     // End of variables declaration//GEN-END:variables
 }
