@@ -90,8 +90,9 @@ public class VentanaPadre extends javax.swing.JFrame {
         JInternalFrame vHija =
                 new JInternalFrame("orden de trabajo", true, true, true, true);
         
+        //Se crea el panel interno
         PanelHijo hijo = new PanelHijo();
-        
+        // Se agregan propiedades de la ventana hijo
         vHija.add(hijo);
         vHija.pack();
         vHija.setVisible(true);
